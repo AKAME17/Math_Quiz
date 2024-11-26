@@ -29,7 +29,6 @@ if (isset($_SESSION['current_test']) && $_SESSION['current_test'] < $_SESSION['t
     $level = $_SESSION['level'];
     $operator = $_SESSION['operator'];
 
-    // Define ranges for each level
     $range = match ($level) {
         1 => 10,
         2 => 50,
@@ -41,7 +40,6 @@ if (isset($_SESSION['current_test']) && $_SESSION['current_test'] < $_SESSION['t
     $num2 = rand(1, $range);
     $correct_answer = 0;
 
-    // Generate correct answer based on selected operator
     switch ($operator) {
         case 'add':
             $correct_answer = $num1 + $num2;
@@ -56,7 +54,7 @@ if (isset($_SESSION['current_test']) && $_SESSION['current_test'] < $_SESSION['t
             $question = "$num1 × $num2 = ?";
             break;
         case 'divide':
-            while ($num2 == 0) $num2 = rand(1, $range); // Avoid division by zero
+            while ($num2 == 0) $num2 = rand(1, $range);
             $correct_answer = round($num1 / $num2, 2);
             $question = "$num1 ÷ $num2 = ?";
             break;
@@ -64,7 +62,7 @@ if (isset($_SESSION['current_test']) && $_SESSION['current_test'] < $_SESSION['t
 
     $_SESSION['correct_answer'] = $correct_answer;
 
-    // Generate multiple-choice answers
+
     $answers = [$correct_answer];
     while (count($answers) < 4) {
         $wrong_answer = rand($correct_answer - 10, $correct_answer + 10);
@@ -82,7 +80,7 @@ if (isset($_SESSION['current_test']) && $_SESSION['current_test'] < $_SESSION['t
             <label>
                 <input type="radio" name="answer" value="<?php echo $value; ?>" required> 
                 <?php echo chr(65 + $key) . ". " . $value; ?>
-            </label><br>
+                </label><br>
         <?php endforeach; ?>
         <button type="submit" name="submit_answer">Submit Answer</button>
     </form>
