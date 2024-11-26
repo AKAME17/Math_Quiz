@@ -28,3 +28,30 @@ label {
     display: block;
     margin: 10px 0;
 }
+
+input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;    
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Radio button label styling */
+label input[type="radio"] {
+    margin-right: 10px;
+}
