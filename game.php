@@ -75,3 +75,14 @@ if (isset($_SESSION['current_test']) && $_SESSION['current_test'] < $_SESSION['t
 
     shuffle($answers);
 ?>
+    <h2>Question <?php echo $_SESSION['current_test'] + 1; ?> of <?php echo $_SESSION['test_count']; ?></h2>
+    <p><?php echo $question; ?></p>
+    <form method="post">
+        <?php foreach ($answers as $key => $value): ?>
+            <label>
+                <input type="radio" name="answer" value="<?php echo $value; ?>" required> 
+                <?php echo chr(65 + $key) . ". " . $value; ?>
+            </label><br>
+        <?php endforeach; ?>
+        <button type="submit" name="submit_answer">Submit Answer</button>
+    </form>
