@@ -73,6 +73,15 @@ if (isset($_SESSION['current_test']) && $_SESSION['current_test'] < $_SESSION['t
 
     shuffle($answers);
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simple Math Game</title>
+</head>
+<body>
     <h2>Question <?php echo $_SESSION['current_test'] + 1; ?> of <?php echo $_SESSION['test_count']; ?></h2>
     <p><?php echo $question; ?></p>
     <form method="post">
@@ -84,13 +93,23 @@ if (isset($_SESSION['current_test']) && $_SESSION['current_test'] < $_SESSION['t
         <?php endforeach; ?>
         <button type="submit" name="submit_answer">Submit Answer</button>
     </form>
-
+</body>
+</html>
 <?php
 } elseif (isset($_SESSION['current_test'])) {
     
     $correct = $_SESSION['correct_answers'];
     $wrong = $_SESSION['wrong_answers'];
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simple Math Game</title>
+</head>
+<body>
     <h2>Game Over!</h2>
     <p>Correct Answers: <?php echo $correct; ?></p>
     <p>Wrong Answers: <?php echo $wrong; ?></p>
@@ -98,6 +117,8 @@ if (isset($_SESSION['current_test']) && $_SESSION['current_test'] < $_SESSION['t
     <form method="post" action="index.html">
         <button type="submit" name="reset_game">Play Again</button>
     </form>
+</body>
+</html>
 <?php
     session_destroy();
 }

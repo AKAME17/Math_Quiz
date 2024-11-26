@@ -39,7 +39,7 @@ input[type="number"], select {
 
 button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #319d34;
     color: white;
     border: none;
     border-radius: 5px;
@@ -48,7 +48,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #319d34;
 }
 
 /* Radio button label styling */
