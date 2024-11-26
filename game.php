@@ -86,3 +86,21 @@ if (isset($_SESSION['current_test']) && $_SESSION['current_test'] < $_SESSION['t
         <?php endforeach; ?>
         <button type="submit" name="submit_answer">Submit Answer</button>
     </form>
+
+    <?php
+} elseif (isset($_SESSION['current_test'])) {
+    
+    $correct = $_SESSION['correct_answers'];
+    $wrong = $_SESSION['wrong_answers'];
+?>
+    <h2>Game Over!</h2>
+    <p>Correct Answers: <?php echo $correct; ?></p>
+    <p>Wrong Answers: <?php echo $wrong; ?></p>
+    <p>Score: <?php echo round(($correct / $_SESSION['test_count']) * 100, 2); ?>%</p>
+    <form method="post" action="index.html">
+        <button type="submit" name="reset_game">Play Again</button>
+    </form>
+<?php
+    session_destroy();
+}
+?>
